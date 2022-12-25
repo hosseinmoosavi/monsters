@@ -14,20 +14,21 @@ const App = () => {
       .then((response) => response.json())
       .then((users) => setMonsters(users)
       )
-    console.log('xx')
-  },
+    },
     []
-  )
+    )
+    
 
-  const filteredMonsters = monsters.filter((monster) => {
-    return monster.name.toLocaleLowerCase().includes(searchField);
-  })
-
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
-  }
-
+    console.log(monsters)
+    const filteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    })
+    
+    const onSearchChange = (event) => {
+      const searchFieldString = event.target.value.toLocaleLowerCase();
+      setSearchField(searchFieldString);
+    }
+    
 
 
 
@@ -47,58 +48,5 @@ const App = () => {
   )
 
 }
-
-// class App extends Component {
-//   constructor() {
-//     super()
-
-//     this.state = {
-//       monsters: [],
-//       searchField: ''
-
-//     };
-
-//   }
-
-//   componentDidMount() {
-//     fetch('http://jsonplaceholder.typicode.com/users')
-//       .then((response) => response.json())
-//       .then((users) => this.setState(
-//         () => {
-//           return { monsters: users }
-//         },
-//               }
-//       ))
-//   }
-//   onSearchChange = (event) => {
-//     const searchField = event.target.value.toLocaleLowerCase();
-//     this.setState(() => {
-//       return { searchField }
-
-//     }
-//     )
-//   }
-
-//   render() {
-
-//     const filteredMonsters = this.state.monsters.filter((monster) => {
-//       return monster.name.toLocaleLowerCase().includes(this.state.searchField);
-//     })
-//     return (
-
-
-//       <div className="background-color">
-//         <h1 style={{}}>MONSTERS ROLODEX</h1>
-//         <div>
-//           <SearchBox onChangeHandler={this.onSearchChange} placeholder='search them monsters' className='search-box' />
-//         </div>
-//         <div>
-//         <CardList monsters={filteredMonsters}/>
-//         </div>
-//       </div >
-//     );
-//   }
-
-// }
 
 export default App;
